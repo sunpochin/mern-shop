@@ -1,4 +1,4 @@
-import * as constants from '../constants/productConstants';
+// import * as constants from '../constants/productConstants';
 
 import {
 	PRODUCT_LIST_REQUEST,
