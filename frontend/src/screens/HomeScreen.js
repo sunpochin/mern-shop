@@ -8,7 +8,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { listProducts } from '../actions/productActions';
 
 const HomeScreen = () => {
-	// const [products, setProducts] = useState([]);
 	const dispatch = useDispatch();
 	const productList = useSelector((state) => state.productList);
 	const { loading, error, products } = productList;
@@ -18,7 +17,7 @@ const HomeScreen = () => {
 	}, [dispatch]);
 
 	return (
-		<div>
+		<>
 			<h1>Latest Products</h1>
 			{loading ? (
 				<Loader />
@@ -33,7 +32,7 @@ const HomeScreen = () => {
 					))}
 				</Row>
 			)}
-		</div>
+		</>
 	);
 };
 
