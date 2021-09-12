@@ -15,7 +15,7 @@ import Product from '../components/Product';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
 
-import { addToCart } from '../actions/cartActions';
+import { addToCart, removeFromCart} from '../actions/cartActions';
 
 const CartScreen = ({ match, location, history }) => {
 	const productId = match.params.id;
@@ -28,8 +28,9 @@ const CartScreen = ({ match, location, history }) => {
 	const { cartItems } = cart;
 	console.log(cartItems);
 
-	const removeFromCartHandler = () => {
-		console.log('remove from cart!');
+	const removeFromCartHandler = (id) => {
+		console.log('remove from cart! ', id);
+		dispatch(removeFromCart(id));
 	};
 	const checkoutHandler = () => {
 		history.push('/login?redirect=shipping');

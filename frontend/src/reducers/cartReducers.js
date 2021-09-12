@@ -19,15 +19,12 @@ export const cartReducer = (state = { cartItems: [] }, action) => {
 					cartItems: [...state.cartItems, item],
 				};
 			}
-
-			return {
-				loading: true,
-				products: action.payload,
-			};
 		case CART_REMOVE_ITEM:
+			// filter out the item we want to remove
+			console.log('CART_REMOVE_ITEM action: ', action, ', payload:', action.payload)
 			return {
-				loading: false,
-				products: action.payload,
+				...state,
+				cartItems: state.cartItems.filter(x => x.product !== action.payload.product)
 			};
 		default:
 			return state;

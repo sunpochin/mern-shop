@@ -21,3 +21,20 @@ export const addToCart = (id, qty) => async (dispatch, getState) => {
 	localStorage.setItem('cartItems', JSON.stringify(getState().cart.cartItems));
 
 };
+
+
+export const removeFromCart = (id) => async (dispatch, getState) => {
+	// const { data } = await axios.get(`/api/products/${id}`);
+
+	console.log('removeFromCart: ', id)
+	dispatch({
+		type: CART_REMOVE_ITEM,
+		payload: {
+			product: id,
+		},
+	});
+
+  // save the states in local storage here, and get it from store.js
+	localStorage.setItem('cartItems', JSON.stringify(getState().cart.cartItems));
+
+};
