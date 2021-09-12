@@ -24,7 +24,7 @@ export const cartReducer = (state = { cartItems: [] }, action) => {
 			console.log('CART_REMOVE_ITEM action: ', action, ', payload:', action.payload)
 			return {
 				...state,
-				cartItems: state.cartItems.filter(x => x.product !== action.payload.product)
+				cartItems: state.cartItems.filter(x => x.product !== action.payload )
 			};
 		default:
 			return state;

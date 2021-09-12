@@ -29,9 +29,7 @@ export const removeFromCart = (id) => async (dispatch, getState) => {
 	console.log('removeFromCart: ', id)
 	dispatch({
 		type: CART_REMOVE_ITEM,
-		payload: {
-			product: id,
-		},
+		payload: id,
 	});
 
   // save the states in local storage here, and get it from store.js
