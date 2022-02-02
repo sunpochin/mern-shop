@@ -1,5 +1,6 @@
 import express from 'express';
-import bodyParser from 'body-parser'
+import path from 'path';
+import bodyParser from 'body-parser';
 import colors from 'colors';
 import dotenv from 'dotenv';
 import { notFound, errorHandler } from './middleware/errorMiddleware.js';
@@ -18,16 +19,28 @@ connectDB();
 
 const app = express();
 // parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
-app.use(bodyParser.json())
+app.use(bodyParser.json());
 
-
-app.get('/', (req, res) => {
-	res.send('api is running');
-});
 app.use('/api/products', productRoutes);
 app.use('/api/users', userRoutes);
+
+const __dirname = path.resolve();
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+if (process.env.NODE_ENV === 'production') {
+	app.use(express.static(path.join(__dirname, '/frontend/build')));
+
+	app.get('*', (req, res) => {
+		const name = path.resolve(__dirname, 'frontend', 'build', 'index.html');
+		console.log('name: ', name);
+		res.sendFile(name);
+	});
+} else {
+	app.get('/', (req, res) => {
+		res.send('api is running');
+	});
+}
 
 app.use(notFound);
 app.use(errorHandler);
