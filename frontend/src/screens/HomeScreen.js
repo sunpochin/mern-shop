@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import Product from '../components/Product';
 import Message from '../components/Message';
@@ -11,6 +11,7 @@ const HomeScreen = () => {
 	const dispatch = useDispatch();
 	const productList = useSelector((state) => state.productList);
 	const { loading, error, products } = productList;
+	console.log('product list: ', productList);
 
 	useEffect(() => {
 		dispatch(listProducts());

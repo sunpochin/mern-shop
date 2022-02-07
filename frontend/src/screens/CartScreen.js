@@ -11,9 +11,9 @@ import {
 	Button,
 } from 'react-bootstrap';
 
-import Product from '../components/Product';
+// import Product from '../components/Product';
 import Message from '../components/Message';
-import Loader from '../components/Loader';
+// import Loader from '../components/Loader';
 
 import { addToCart, removeFromCart} from '../actions/cartActions';
 

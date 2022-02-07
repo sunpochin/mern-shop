@@ -1,8 +1,11 @@
-# mern-shop
+# mern-shop summary
+* My coding along with a MERN-stack course
+## Demo site:
+```https://mern-shop-frontend.herokuapp.com/```
 
-## backend start
+### backend start
 ```nodemon backend/server.js ```
-## frontend start
+### frontend start
 ```
 cd frontend
 nodemon 3000

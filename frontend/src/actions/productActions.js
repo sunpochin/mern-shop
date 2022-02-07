@@ -1,5 +1,4 @@
 import axios from 'axios';
-import * as constants from '../constants/productConstants';
 
 import {
 	PRODUCT_LIST_REQUEST,
